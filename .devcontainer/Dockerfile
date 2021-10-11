@@ -1,9 +1,9 @@
 FROM ubuntu
 
-RUN apt update && apt upgrade
+RUN apt update && apt upgrade -y
 
 RUN apt install -y --no-install-recommends \
-    nano 
+    vim 
 
 # Create a basic user
 ARG USERNAME=user
@@ -18,9 +18,12 @@ RUN apt-get update \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-# Remove 
+# Install required things
+RUN apt install -y nodejs
+
+# Remove APT lists
 RUN rm -rf /var/lib/apt/lists/*
 
+# Set up workspace
 RUN mkdir -p /home/$USERNAME/ws
-
 WORKDIR /home/$USERNAME/ws

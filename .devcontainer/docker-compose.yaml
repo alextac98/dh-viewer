@@ -4,11 +4,16 @@ services:
         container_name: dev-container-template
         image: dev-container-template
         build:
-            context: .
-            dockerfile: Dockerfile
-
+          context: .
+          dockerfile: Dockerfile
+        env_file:
+          - build.env
+        volumes:
+          - ../:/home/user/ws
+          
         # For attaching shells
         stdin_open: true # docker run -i
         tty: true        # docker run -t
-
+        
+        hostname: dh-viewer
         user: user
