@@ -1,16 +1,20 @@
 version: "3.8"
 services:
-    dev-container-template:
-        container_name: dev-container-template
-        image: dev-container-template
+    dev:
+        container_name: dh-viewer-dev
+        image: dh-viewer-dev-img
         build:
           context: .
           dockerfile: Dockerfile
+          args:
+            USER_ID: ${USER_ID}
+            GROUP_ID: ${GROUP_ID}
         env_file:
           - build.env
         volumes:
           - ../:/home/user/ws
-          
+        ports:
+          - 3000:3000
         # For attaching shells
         stdin_open: true # docker run -i
         tty: true        # docker run -t
