@@ -2,7 +2,30 @@
 
 The  DH Viewer project is built using Node.js running in a docker container. While you can develop this project with a local version of npm and node.js, these instructions will be for using VS Code with the development container feature.
 
+The main benefit of developing using VS Code Dev Containers is the ease of setup. Once you have installed the docker daemon and built the container and image, the development environment is fully set up and ready for development. If you ever mess up your environment, simply rebuild the container and you are back up and ready to go. You can also set up custom VS Code extensions that are only useful for this specific project. Finally the setup is cross-platform and every developer (who chooses to develop with this) will have the exact same development environment, making reproducing bugs between developers much easier. Best of all, there should be little to no change between how you would normally develop a web app!
+
+## Quick References
+Running the app: `npm start`
+
+Running unit tests: `npm test`
 ## Setup
+
+### Prerequisites
+You will need the following installed:
+1. Docker & Docker-Compose 
+
+Installation instructions can be found here: https://docs.docker.com/get-docker/
+
+2. Visual Studio Code
+
+3. Visual Studio Code Remote Development Extension
+
+### Starting up the development environment
+For your first time, you will need to build the development environment. Use the keybinding `ctrl+shift+p` or `cmd+shift+p` to open the VS Code command prompt and type `Remote Container Rebuild and Reopen`. Select the option that says `Remote-Containers: Rebuild and Reopen in Container`
+
+Once you've built the environment, you do not have to rebuild every time. Use the keybinding `ctrl+shift+p` or `cmd+shift+p` to open the VS Code command prompt and type `Remote Container Reopen`. Select the option that says `Remote-Containers: Reopen in Container`
+
+If you ever change the `.devcontainer` directory or mess up your development container, simply rebuild the container by opening the VS Code command prompt and select `Remote-Containers: Rebuild and Reopen in Container`
 
 ### Setting up git in devcontainer
 The Remote - Containers extension automatically copies the local `.gitconfig` to the container at startup. Make sure you have set up your git user name and email address:
@@ -47,3 +70,19 @@ fi
 ```
 
 **Source:** https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container
+
+## Development with NodeJS in the Dev Container
+
+### Developing the App
+To start the app in development mode, run the following command:
+``` bash
+npm start
+```
+This will open the app at [http://localhost:3000](http://localhost:3000) in your browser. The page will auto-reload if you make any edits. You can also see any lint errors in the console.
+
+### Running Unit Tests
+To run unit tests, run the following command:
+``` bash
+npm test
+```
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
