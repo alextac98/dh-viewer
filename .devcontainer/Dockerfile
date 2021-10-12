@@ -5,7 +5,10 @@ ENV DEBIAN_FRONTEND="noninteractive"
 RUN apt update && apt upgrade -y
 
 RUN apt install -y --no-install-recommends \
-    vim git
+    vim \               
+    git \
+    # Openssh client for pushing to git using ssh keys
+    openssh-client 
 
 # Create a basic user
 ARG USERNAME=user
@@ -19,6 +22,8 @@ RUN apt-get update \
     && apt-get install -y sudo \
     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
     && chmod 0440 /etc/sudoers.d/$USERNAME
+
+RUN chsh -s /bin/bash $USERNAME
 
 # Install required things
 RUN apt install -y nodejs npm
