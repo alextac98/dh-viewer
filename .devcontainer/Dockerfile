@@ -10,6 +10,7 @@ RUN apt install -y --no-install-recommends \
     # Openssh client for pushing to git using ssh keys
     openssh-client 
 
+
 # Create a basic user
 ARG USERNAME=user
 ARG USER_UID=1000
@@ -28,7 +29,7 @@ RUN chsh -s /bin/bash $USERNAME
 # Install required things
 RUN apt install -y nodejs npm
 RUN npm install --silent
-# RUN npm install react-scripts --silent
+
 
 # Remove APT lists
 RUN rm -rf /var/lib/apt/lists/*

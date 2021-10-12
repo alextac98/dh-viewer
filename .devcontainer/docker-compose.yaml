@@ -1,5 +1,6 @@
 version: "3.8"
 services:
+
     dev:
         container_name: dh-viewer-dev
         image: dh-viewer-dev-img
@@ -15,6 +16,7 @@ services:
           - ../:/home/user/ws
         ports:
           - 3000:3000
+
         # For attaching shells
         stdin_open: true # docker run -i
         tty: true        # docker run -t
