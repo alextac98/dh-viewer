@@ -29,7 +29,7 @@ jobs:
     - name: Upload production-ready build files
       uses: actions/upload-artifact@v2
       with:
-        name: main-site
+        name: site-files
         path: ./build
   
   deploy-website:
@@ -42,7 +42,7 @@ jobs:
     - name: Download artifact
       uses: actions/download-artifact@v2
       with:
-        name: production-files
+        name: site-files
         path: ./build
 
     - name: Deploy to prod
