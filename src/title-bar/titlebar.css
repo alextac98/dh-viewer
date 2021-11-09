@@ -1,0 +1,17 @@
+.titlebar{
+    height: auto;
+    background-color: #444444;
+    padding: 6px;
+    padding-left: 25px;
+}
+
+.title {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+
+    align-items: center;
+
+    color: white;
+}
