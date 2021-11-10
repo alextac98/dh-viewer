@@ -1,19 +1,21 @@
-import './titlebar.css'
+import './titlebar.css';
+import { Menu } from './Menu.js';
 
 function TitleBar() {
     return (
         <div className="titlebar">
             {Title("DH Viewer")}
+            {Menu()}
         </div>
     );
 }
 
 function Title(title) {
     return (
-        <div onClick={onTitleClick}>
-            <text className="title">
+        <div onClick={onTitleClick} style={{float: "left"}}>
+            <p className="title">
                 {title}
-            </text>
+            </p>
         </div>
     );
 }

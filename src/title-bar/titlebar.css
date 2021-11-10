@@ -1,8 +1,10 @@
 .titlebar{
+    overflow: hidden;
     height: auto;
     background-color: #444444;
     padding: 6px;
     padding-left: 25px;
+    padding-right: 25px;
 }
 
 .title {
@@ -11,7 +13,22 @@
     font-weight: bold;
     font-size: 30px;
 
+    padding: 0px;
+    margin: 0px;
     align-items: center;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 
     color: white;
+}
+
+.menu {
+    float:right;
+    width: 32px;
+    height: 32px;
+}
+
+.GHIconLink {
+    width: auto;
+    height: auto;
 }
