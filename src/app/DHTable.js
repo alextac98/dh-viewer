@@ -27,7 +27,7 @@ export function DHTable(){
             {DHTableTitle()}
             <DisplayDHTable/>
             {/* Create Bottom */}
-            
+            <AddDHRowButton/>
         </div>
     );
 }
@@ -63,8 +63,6 @@ function DisplayDHTable(props){
     );
 }
 
-
-
 function DHTableRow(props){
     return (
         <TableRow key={props.link.name}>
@@ -91,3 +89,17 @@ function DHCell(props) {
     );
 }
 
+function addDHRow(){
+    console.log("Adding new DH row");
+    data.push(createLink('Base Link', 0, 0, 0, 0));
+    console.log(data.length);
+}
+
+function AddDHRowButton(props){
+    return (
+        <Button variant="contained"
+                onClick={() => {addDHRow()}}>
+            Add DH Row
+        </Button>
+    );
+}
