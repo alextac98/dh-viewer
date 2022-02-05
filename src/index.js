@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './app/App';
+import TitleBar from './title-bar/TitleBar'
 import reportWebVitals from './reportWebVitals';
+import { render } from '@testing-library/react';
 
 ReactDOM.render(
   <React.StrictMode>
+    <TitleBar/>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
