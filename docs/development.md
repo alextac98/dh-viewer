@@ -13,12 +13,14 @@ Running unit tests: `npm test`
 ### Prerequisites
 You will need the following installed:
 1. Docker & Docker-Compose 
-
-Installation instructions can be found here: https://docs.docker.com/get-docker/
-
+   1. Installation instructions can be found here: https://docs.docker.com/get-docker/
+   2. Post-installation steps can found here: https://docs.docker.com/engine/install/linux-postinstall/
+   3. Installation instructions for Docker-Compose can be found here: https://docs.docker.com/compose/install/
+   
 2. Visual Studio Code
 
 3. Visual Studio Code Remote Development Extension
+
 
 ### Starting up the development environment
 For your first time, you will need to build the development environment. Use the keybinding `ctrl+shift+p` or `cmd+shift+p` to open the VS Code command prompt and type `Remote Container Rebuild and Reopen`. Select the option that says `Remote-Containers: Rebuild and Reopen in Container`
