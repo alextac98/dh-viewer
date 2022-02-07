@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     name: Build
+    environment: production
     runs-on: ubuntu-latest
     
     strategy:
@@ -23,9 +24,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install NPM packages
-        run: npm ci
-      
       - name: Build project
         run: npm run build
       
@@ -40,6 +38,7 @@ jobs:
   
   deploy-website:
     name: Deploy Website
+    environment: production
     needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
