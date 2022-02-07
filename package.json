@@ -1,6 +1,6 @@
 {
   "name": "dh-viewer",
-  "homepage" : "https://alextac98.github.io/dh-viewer",
+  "homepage": "https://alextac98.github.io/dh-viewer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
