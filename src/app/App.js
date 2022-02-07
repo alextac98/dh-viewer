@@ -1,4 +1,3 @@
-import logo from '../logo.svg';
 import { Visualizer } from './Visualizer';
 import { DHTable } from './DHTable';
 import './App.css';

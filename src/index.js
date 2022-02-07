@@ -4,7 +4,7 @@ import './index.css';
 import App from './app/App';
 import TitleBar from './title-bar/TitleBar'
 import reportWebVitals from './reportWebVitals';
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
 
 ReactDOM.render(
   <React.StrictMode>
