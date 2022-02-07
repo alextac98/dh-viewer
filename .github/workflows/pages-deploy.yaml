@@ -10,27 +10,33 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-    
-    - name: Install Node.js
-      uses: actions/setup-node@v1
-          
-    - name: Install NPM packages
-      run: npm ci
-    
-    - name: Build project
-      run: npm run build
-    
-    - name: Run tests and produce reports
-      run: npm test 
+    strategy:
+      matrix:
+        node-version: [16.x] # Found in .devcontainer dockerfile
 
-    - name: Upload production-ready build files
-      uses: actions/upload-artifact@v2
-      with:
-        name: site-files
-        path: ./build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install NPM packages
+        run: npm ci
+      
+      - name: Build project
+        run: npm run build
+      
+      - name: Run tests and produce reports
+        run: npm test 
+
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v2
+        with:
+          name: site-files
+          path: ./build
   
   deploy-website:
     name: Deploy Website
