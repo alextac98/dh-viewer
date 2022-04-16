@@ -1,5 +1,5 @@
 import { Visualizer } from './Visualizer';
-import { DHTable } from './DHTable';
+import DHTableSection from './DHTable';
 import './App.css';
 
 function App() {
@@ -16,7 +16,7 @@ export default App;
 function SideMenu(){
   return(
     <div className="AppComponent SideMenu">
-      <DHTable/>
+      <DHTableSection/>
     </div>
   );
 }
