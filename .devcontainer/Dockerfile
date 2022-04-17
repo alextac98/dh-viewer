@@ -1,8 +1,17 @@
 FROM ubuntu
 
+# Options for setup script
+ARG INSTALL_ZSH="true"
+ARG UPGRADE_PACKAGES="true"
+ARG USERNAME=user
+ARG USER_UID=1000
+ARG USER_GID=$USER_UID
+
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt update && apt upgrade -y
+# Install base packages and set up non-root user
+COPY common-debian.sh /tmp/devcontainer-scripts/
+RUN yes | bash /tmp/devcontainer-scripts/common-debian.sh "${INSTALL_ZSH}" "${USERNAME}" "${USER_UID}" "${USER_GID}" "${UPGRADE_PACKAGES}" "true" "true"
 
 RUN apt install -y --no-install-recommends \
     vim \               
@@ -12,22 +21,16 @@ RUN apt install -y --no-install-recommends \
     # Openssh client for pushing to git using ssh keys
     openssh-client 
 
+# RUN groupadd --gid $USER_GID $USERNAME \
+#     && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
 
-# Create a basic user
-ARG USERNAME=user
-ARG USER_UID=1000
-ARG USER_GID=1000
+# # [Optional] Add sudo support. Omit if you don't need to install software after connecting.
+# RUN apt-get update \
+#     && apt-get install -y sudo \
+#     && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
+#     && chmod 0440 /etc/sudoers.d/$USERNAME
 
-RUN groupadd --gid $USER_GID $USERNAME \
-    && useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
-
-# [Optional] Add sudo support. Omit if you don't need to install software after connecting.
-RUN apt-get update \
-    && apt-get install -y sudo \
-    && echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME \
-    && chmod 0440 /etc/sudoers.d/$USERNAME
-
-RUN chsh -s /bin/bash $USERNAME
+# RUN chsh -s /bin/bash $USERNAME
 
 # Set up workspace
 RUN mkdir -p /home/$USERNAME/ws
