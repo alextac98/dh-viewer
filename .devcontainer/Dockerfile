@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:20.04
 
 # Options for setup script
 ARG INSTALL_ZSH="true"
