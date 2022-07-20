@@ -12,8 +12,8 @@ Running unit tests: `npm test`
 
 ### Prerequisites
 You will need the following installed:
-1. Docker & Docker-Compose 
-   1. Installation instructions can be found here: https://docs.docker.com/get-docker/
+1. Docker-Desktop & Docker-Compose 
+   1. Installation instructions for Docker-Desktop can be found here: https://docs.docker.com/get-docker/
    2. Post-installation steps can found here: https://docs.docker.com/engine/install/linux-postinstall/
    3. Installation instructions for Docker-Compose can be found here: https://docs.docker.com/compose/install/
    
