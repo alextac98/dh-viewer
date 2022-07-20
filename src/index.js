@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './app/App';
 import TitleBar from './title-bar/TitleBar'
+import AboutUs from './about-us/AboutUs'
 import reportWebVitals from './reportWebVitals';
 // import { render } from '@testing-library/react';
 
 ReactDOM.render(
   <React.StrictMode>
     <TitleBar/>
-    <App />
+    <App/>
+    <AboutUs/>
   </React.StrictMode>,
   document.getElementById('root')
 );

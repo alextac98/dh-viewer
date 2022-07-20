@@ -1,28 +1,50 @@
 import './titlebar.css';
+import '../../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 import { Menu } from './Menu.js';
+import { Navbar, Nav, NavDropdown, Button } from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import { AboutUs } from '../about-us/AboutUs.js'
 
 function TitleBar() {
     return (
-        <div className="titlebar">
-            {Title("DH Viewer")}
-            {Menu()}
-        </div>
+        <Router>
+            <div>
+                <Navbar bg="light" >
+                    <Title title="DH Viewer" href="#home"/>
+                    <Menu/>
+                </Navbar>
+            </div>
+            <Routes>
+                {/* <Route path="/" element={<Dashboard />}>
+                    <Route
+                    path="messages"
+                    element={<DashboardMessages />}
+                    />
+                    <Route path="tasks" element={<DashboardTasks />} />
+                </Route> */}
+                <Route path="aboutUs" element={<AboutUs />} />
+                </Routes>
+        </Router>
+        // <div className="titlebar">
+        //     <Title title="DH Viewer"/>
+        //     {Menu()}
+        // </div>
     );
 }
 
-function Title(title) {
+function Title(props) {
     return (
-        <div onClick={onTitleClick} style={{float: "left"}}>
-            <p className="title">
-                {title}
-            </p>
-        </div>
+        <Navbar.Brand href={props.href} className="h1">
+            {props.title}
+        </Navbar.Brand>
     );
 }
+
+
 
 function onTitleClick(){
     console.log("User clicked the title");
-    // window.location.href ='https://alextac.com';
 }
 
 export default TitleBar;
